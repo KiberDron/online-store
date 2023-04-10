@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { Card, Col, Image, Row } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { DEVICE_ROUTE } from "../utils/consts";
-import CancelIcon from '@mui/icons-material/Cancel';
+import CancelIcon from "@mui/icons-material/Cancel";
 import { Context } from "../index";
 import { deleteBasketDevice } from "../http/deviceAPI";
 
 const DeviceItem = ({ deviceItem }) => {
   const navigate = useNavigate();
-  const {user, device} = useContext(Context)
+  const { user, device } = useContext(Context);
 
   const deleteDevice = () => {
     deleteBasketDevice(deviceItem.id, user.user.id).then((data) =>
@@ -18,24 +18,6 @@ const DeviceItem = ({ deviceItem }) => {
     );
   };
 
-  // return (
-  //   <div className="d-flex justify-content-between" >
-  //     <Image
-  //       onClick={() => navigate(DEVICE_ROUTE + "/" + deviceItem.id)}
-  //       src={process.env.REACT_APP_API_URL + deviceItem.img}
-  //       width={100}
-  //       height={100}
-  //       style={{cursor: 'pointer'}}
-  //     />
-  //     <div className="">
-  //       <p className="fw-bold">{deviceItem.name}</p>
-  //       <p>Количество: {deviceItem.count}</p>
-  //     </div>
-  //     <p>{deviceItem.price * deviceItem.count} руб.</p>
-  //     <CancelIcon onClick={deleteDevice} style={{cursor: 'pointer'}} />
-  //   </div>
-  // );
-
   return (
     <Row md={4}>
       <Col md={2}>
@@ -44,7 +26,7 @@ const DeviceItem = ({ deviceItem }) => {
           src={process.env.REACT_APP_API_URL + deviceItem.img}
           width={100}
           height={100}
-          style={{cursor: 'pointer'}}
+          style={{ cursor: "pointer" }}
         />
       </Col>
       <Col md={5}>
@@ -55,7 +37,11 @@ const DeviceItem = ({ deviceItem }) => {
         <p>{deviceItem.price * deviceItem.count} руб.</p>
       </Col>
       <Col className="d-flex">
-        <CancelIcon className="ms-auto" onClick={deleteDevice} style={{cursor: 'pointer'}} />
+        <CancelIcon
+          className="ms-auto"
+          onClick={deleteDevice}
+          style={{ cursor: "pointer" }}
+        />
       </Col>
     </Row>
   );

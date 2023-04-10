@@ -154,14 +154,14 @@ const DevicePage = observer(() => {
             }}
           >
             <h3>Цена: {device.price} руб.</h3>
-            {user.isAuth &&
+            {user.isAuth && (
               <Button
                 onClick={() => setModalVisible(true)}
                 variant={"outline-dark"}
               >
                 Добавить в корзину
               </Button>
-            }
+            )}
           </Card>
         </Col>
       </Row>

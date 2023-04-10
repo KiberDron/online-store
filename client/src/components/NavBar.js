@@ -4,11 +4,16 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
-import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, BASKET_ROUTE } from "../utils/consts";
+import {
+  ADMIN_ROUTE,
+  LOGIN_ROUTE,
+  SHOP_ROUTE,
+  BASKET_ROUTE,
+} from "../utils/consts";
 import { Button } from "react-bootstrap";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const NavBar = observer(() => {
   const { user, device } = useContext(Context);
@@ -21,10 +26,14 @@ const NavBar = observer(() => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="primary" variant="light">
       <Container>
-        <NavLink style={{ color: "white" }} to={SHOP_ROUTE}>
-          Device Store
+        <NavLink
+          className="fw-bold"
+          style={{ color: "white", textDecoration: "none" }}
+          to={SHOP_ROUTE}
+        >
+          📱 Device Store
         </NavLink>
         {user.isAuth ? (
           <Nav className="d-flex align-items-center" style={{ color: "white" }}>
@@ -39,9 +48,9 @@ const NavBar = observer(() => {
             <ShoppingCartIcon
               onClick={() => navigate(BASKET_ROUTE)}
               className="ms-3"
-              style={{cursor: 'pointer'}}
+              style={{ cursor: "pointer" }}
             />
-            <span>{device.basketCount || ''}</span>
+            <span>{device.basketCount || ""}</span>
             <Button
               variant={"outline-light"}
               onClick={() => logOut()}
