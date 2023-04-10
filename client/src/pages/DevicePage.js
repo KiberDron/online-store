@@ -61,12 +61,6 @@ const DevicePage = observer(() => {
     }
   };
 
-  const addToBasket = () => {
-    createBasketDevice({ deviceId: id, userId: user.user.id }).then((data) =>
-      alert("Товар добавлен в корзину")
-    );
-  };
-
   useEffect(() => {
     fetchRating(id).then((data) => {
       setRating(data.rating);
