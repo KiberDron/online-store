@@ -71,7 +71,7 @@ export const fetchUserRating = async (userId, deviceId) => {
 };
 
 export const fetchRating = async (deviceId) => {
-  const { data } = await $authHost.get("api/rating/" + deviceId);
+  const { data } = await $host.get("api/rating/" + deviceId);
   return data;
 };
 

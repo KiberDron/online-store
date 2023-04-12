@@ -22,7 +22,20 @@ const App = observer(() => {
   });
 
   if (loading) {
-    return <Spinner animation={"grow"} />;
+    return (
+      <div
+        className="d-flex flex-column justify-content-center align-items-center"
+        style={{ height: "100vh" }}
+      >
+        <div className="d-flex justify-content-center align-items-center">
+          <strong className="me-2">Загрузка...</strong>
+          <Spinner variant="primary" animation="border" />
+        </div>
+        <p className="mt-2">
+          Это может занять некоторое время (обычно не более 30 секунд)
+        </p>
+      </div>
+    );
   }
 
   return (
