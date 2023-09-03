@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 const corsOptions = {
-  origin: "https://devicestore.netlify.app",
+  origin: ["https://devicestore.netlify.app", "http://localhost:3000"],
   optionsSuccessStatus: 200,
 };
 
